@@ -1,11 +1,23 @@
 import { createBrowserRouter } from "react-router-dom";
-import Login from "../components/Login/Login";
+import Auth from "../components/Auth/Auth";
+import Register from "../components/Auth/Register";
+import Login from "../components/Auth/Login";
 
 const router = createBrowserRouter([
    {
       path: "/",
-      element: <Login />,
+      element: <Auth />,
       errorElement: "Something went wrong", // Need to update
+      children: [
+         {
+            path: "/",
+            element: <Login />,
+         },
+         {
+            path: "/register",
+            element: <Register />,
+         },
+      ],
    },
 ]);
 
